@@ -1,0 +1,29 @@
+<div class="row m-0 p-0">
+    <div class="col">
+    </div>
+    <div class="col">
+    </div>
+    <div class="col">
+    <!--   <ng-select [(ngModel)]="selectedCategory">
+        <option class="dropdown-item" disabled selected value="undefined">Select an Option</option>
+            <ng-option *ngFor="let category of categories" [value]="category.id">{{category.name}}</ng-option>
+        </ng-select>--> 
+        <select ng-init="selectedCategory='ALLITEMS'"  class="form-select" 
+        name="selectCategory"  id="selectCategory" 
+        [(ngModel)]="selectedCategory" (change) = "cambiaseleccion(cat.value,'')" #cat >                    
+                <option *ngFor="let op of categories" [value]="op.id" [selected]="op.id=== ngSelect">
+                {{op.name}}
+                </option> 
+        </select>   
+    </div>
+    
+</div>
+<app-item-list
+    [listItems]="products"
+    labelButton1 = "Agregar"
+    labelButton2 = "Ver detalle"
+    (onClickButton1)="agregar($event)"
+    (onClickButton2)="verDetalle($event)"
+    >
+</app-item-list>
+

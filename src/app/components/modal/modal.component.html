@@ -1,0 +1,25 @@
+
+
+<!--<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">-->
+    <div class="modal-header bg-dark bg-gradient text-light" >
+        <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
+        <!--<button type="button" class="close" aria-label="Close" (click)="activeModalService.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>-->
+        <button type="button" class="btn-close btn-light bg-light" (click)="close()" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{message}}
+      </div>
+      <div class="modal-footer">
+        <!--<input [(ngModel)]="user.name" type="text">
+        <input [(ngModel)]="user.age" type="number">--> 
+        <!--<button (click)="passBack()" type="submit" class="btn btn-primary w-100">Pass back</button>-->
+        <button type="button" class="btn btn-secondary" 
+            data-bs-dismiss="modal" (click)="close()">{{labelCancel}}</button>
+        <button type="button" class="btn btn-danger"
+            (click)="clickButtonOk()">{{labelOk}}</button>
+      </div> 
+ <!-- </div>
+</div>-->

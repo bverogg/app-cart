@@ -1,0 +1,40 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
+            <!-- track identifica de manera única un ítem, el code debe ser único podría ser index, pero así
+            es la validación de que sean únicos-->
+            @for(item of listItems; track item.code; let i = $index){
+                <div class="col card-group">
+                    <div class="card shadow-sm">
+                        <img class="card-img-top" src="assets/images/products/{{item.code}}.jpg" alt="">                        
+                        <div class="card-body">
+                            <h3>{{item.name}}</h3>
+                            <h4>{{item.category}}</h4>
+                            <p class="card-text">{{item.description}}</p>
+                            
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button"
+                                        class="btn btn-sm btn-outline-success"
+                                        (click)="clickButton1(item)">
+                                        {{labelButton1}}
+                                    </button>
+                                    <button type="button"
+                                        class="btn btn-sm btn-outline-success"
+                                        (click)="clickButton2()">
+                                        {{labelButton2}}
+                                    </button>
+                                </div>
+                                <small class="text-muted">Precio {{item.unitPrice | currency}}</small>                    
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            }
+        </div>
+    </div>
+</div>
+
+

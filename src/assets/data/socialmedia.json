@@ -1,0 +1,9 @@
+[
+    { "socialmedia": "twitter", "url": "https://twitter.com/Paqueteria3G" },
+    { "socialmedia": "facebook", "url": "https://www.facebook.com/paqueteriatresguerrasoficial" },
+    { "socialmedia": "youtube", "url": "https://www.youtube.com/channel/UC0X_TJkyWD4LTYYcOZ11jLA" },
+    { "socialmedia": "instagram", "url": "https://www.instagram.com/paqueteriatresguerras_oficial" },
+    { "socialmedia": "linkedin", "url": "https://www.linkedin.com/company/paqueter%C3%ADa-tresguerras" },
+    { "socialmedia": "whatsapp", "url": "https://api.whatsapp.com/send?phone=524613462651&text=Hola%20Tresguerras" },
+    { "socialmedia": "messenger", "url": "https://www.messenger.com/t/1749058788461519/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0" }
+]
