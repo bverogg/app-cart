@@ -38,10 +38,12 @@
     
     </ul>
     <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+    <!--<input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search" 
+    id="search" #criterio (keyup.enter)="onSearch(criterio.value)" (search)="onSearch(criterio.value)">-->
     <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search" 
-    id="search" #criterio (keyup.enter)="onSearch(criterio.value)" (search)="onSearch(criterio.value)">
-    <!--(search)="onSearch(criterio.value)"-->
-    </div>
+    id="search" #criterio  (search)="onSearch($event)">
+    <!--(keyup.enter)="onSearch($event)"-->
+  </div>
     <div class="text-end">
     <button type="button" class="btn btn-outline-light me-2">Login</button>
     <button type="button" class="btn btn-magenta me-5">Sign-up</button>
@@ -111,22 +113,6 @@
                 </tbody>
               </table>
               <h4 class="text-end">Subtotal:  {{subTotalCart | currency}}</h4>
-              
-            <!--@for(item of itemsCart; track item.code; let i = $index){
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-3 col-md-4" >
-                            <img src="assets/images/products/{{item.code}}.jpg" alt="{{item.name}}" class="card-img img-fluid rounded-start">
-                        </div>
-                        <div class="col-9 col-md-8">
-                            <div class="card-body">
-                                <h6 class="card-title">{{item.name}}</h6>                          
-                                <p class="card-text"><small class="text-muted">{{item.unitPrice}}</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>                
-            }-->
           <!--<div class="text-end">
                 <button type="button" class="btn btn-outline-dark" (click)="offcanvas.close('Close click')">Close</button>
             </div>

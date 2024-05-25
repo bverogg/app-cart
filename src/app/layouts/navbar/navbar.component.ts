@@ -27,17 +27,7 @@ export class NavbarComponent implements OnDestroy {
   itemsCart : any[] = [];
   subTotalCart : number = 0;
 
-  // para busqueda
-  /*products: any[] = [];
-  body: any = {} ;
-  body: any = {
-    category:'AllItems',
-    pageNumber: 1,
-    pageSize: 6,
-    criterio : ''
-  }*/
-
-
+  
 
   constructor(    
     public modalService: NgbModal,
@@ -59,23 +49,6 @@ export class NavbarComponent implements OnDestroy {
         this.subTotalCart = subTotal;
       });
 
-    /*  this.cartService.getProductsByCategory(this.body).subscribe({
-        // Este código se ejecuta de forma asíncrona
-        next: (data: any) =>{
-          
-          this.products = data.result.data;
-          
-          console.log(data);
-        },
-        error: (error: any) => {
-          console.log(`Ocurrió un error en la llamada al servicio, descripción del error: ` , error)
-  
-        },
-        // cuando se ejecuta todo de manera correcta, se ejecuta complete.
-        complete: () => {
-          console.log("Llamada al servicio completada con éxito desde el api search");
-        }
-      })*/
   }
 
   ngOnDestroy(): void {
@@ -119,36 +92,11 @@ export class NavbarComponent implements OnDestroy {
   
   }
 
-
-  onSearch(criterio: string) {
-    console.log("criterio desde navbar " + criterio);
-    this.searchService.sendCriterio(criterio);
-  /* this.body = {
-      category:"AllItems",
-      pageNumber: 1,
-      pageSize: 6,
-      criterio : search
-    }
-    console.log(this.body);
-    this.cartService.getProductsByCategory(this.body).subscribe({
-      // Este código se ejecuta de forma asíncrona
-      next: (data: any) =>{
-        //this.products = data;
-        this.products = data.result.data;
-        console.log("desde búsqueda");
-        console.log(data);
-      },
-      error: (error: any) => {
-        console.log(`Ocurrió un error en la llamada al servicio, descripción del error: ` , error)
-
-      },
-      // cuando se ejecuta todo de manera correcta, se ejecuta complete.
-      complete: () => {
-        console.log("Llamada al servicio completada con éxito desde el api search");
-      }
-    })
-    console.log(search);
-*/
+  //onSearch(criterio: string) {
+    onSearch(event: any) {
+    //console.log("criterio desde navbar " + criterio);
+    //this.searchService.sendCriterio(criterio);
+    this.searchService.sendCriterio(event.target.value);
   }
     
 

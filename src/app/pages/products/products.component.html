@@ -10,7 +10,7 @@
         </ng-select>--> 
         <select ng-init="selectedCategory='ALLITEMS'"  class="form-select" 
         name="selectCategory"  id="selectCategory" 
-        [(ngModel)]="selectedCategory" (change) = "cambiaseleccion(cat.value,'')" #cat >                    
+        [(ngModel)]="selectedCategory" (change) = "cambiaseleccion(cat.value)" #cat >                    
                 <option *ngFor="let op of categories" [value]="op.id" [selected]="op.id=== ngSelect">
                 {{op.name}}
                 </option> 

@@ -20,11 +20,12 @@ export class ProductsComponent implements OnDestroy{
   //cartService = inject(CartService);
   products: any[] = [];
    // para unir con la api
+  criterio: any = '';
   body: any = {
     category:'AllItems',
     pageNumber: 1,
-    pageSize: 12,
-    criterio : ''
+    pageSize: 18,
+    criterio : this.criterio
   }
 
   ngSelect = "ALLITEMS";
@@ -39,25 +40,27 @@ export class ProductsComponent implements OnDestroy{
   ];
 
 
+
   constructor(
     private cartService: CartService,
     private searchService : SearchService
   ){
 
 
-    // subscripción para el buscador
     this.searchService.getCriterio.subscribe((criterio:string) =>{
       
       console.log("El criterio de búsqueda es " ,criterio);
-      this.body.criterio = criterio == '' ? ' ' : criterio;
-      
-      this.products = [];
-      
+      this.body.criterio = criterio == '' ? ' ' : criterio;      
+      this.products = [];      
       // this.pager = {};
       this.body.pageNumber = 1;
+      this.body.category= "AllItems";
       console.log(this.body);
-    /* 
-      
+
+      if(criterio != ''){
+        this.selectedCategory = "ALLITEMS";
+      }
+
       this.cartService.getProductsByCategory(this.body).subscribe({
         // Este código se ejecuta de forma asíncrona
         next: (data: any) =>{
@@ -72,12 +75,11 @@ export class ProductsComponent implements OnDestroy{
         complete: () => {
           console.log("Llamada al servicio completada con éxito desde el api");
         }
-      })*/
+      })
       
     });
-     // para unir con la api se envían los criterios 
-    // se pone aquí porque solo una vez se ejecuta en el constructor
-    this.cartService.getProductsByCategory(this.body).subscribe({
+  //  this.cambiaseleccion("AllItems");
+   /*this.cartService.getProductsByCategory(this.body).subscribe({
       // Este código se ejecuta de forma asíncrona
       next: (data: any) =>{
         this.products = data.result.data;
@@ -91,10 +93,8 @@ export class ProductsComponent implements OnDestroy{
       complete: () => {
         console.log("Llamada al servicio completada con éxito desde el api");
       }
-    })
+    })*/
 
-    
-  
 
     /* mock
     this.productService.getProducts().subscribe({
@@ -112,6 +112,11 @@ export class ProductsComponent implements OnDestroy{
         console.log("Llamada al servicio completada con éxito");
       }
     })*/
+  }
+
+  ngOnInit(){
+    
+
   }
   
   ngOnDestroy(): void {
@@ -131,11 +136,11 @@ export class ProductsComponent implements OnDestroy{
     console.log(args);
   }
 
-  cambiaseleccion(categoria: any,criterio: string) {
+  cambiaseleccion(categoria: any) {
     this.body = {
       category:categoria,
       pageNumber: 1,
-      pageSize: 12,
+      pageSize: 18,
       criterio : ''
     }
     
@@ -158,7 +163,4 @@ export class ProductsComponent implements OnDestroy{
     })
 
   }
-
-
-
 }

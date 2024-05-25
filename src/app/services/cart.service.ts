@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-const API_URL : string = `http://localhost:3000/api/cart/v1`;
+//const API_URL : string = `http://localhost:3000/api/cart/v1`;
+const API_URL : string = `http://carrito.edu.mx/api/cart/v1`;
 
 @Injectable({
   providedIn: 'root'

@@ -11,7 +11,7 @@ export class SearchService {
   constructor() { }
 
   sendCriterio(criterio:string){
-    console.log("criterio en service " , criterio);
+    //console.log("criterio en service " , criterio);
     this.getCriterio.next(criterio);
   }
 }
